@@ -24,7 +24,6 @@ class Dict(dict):
     >>> d2=Dict(a=1,b=2,c='3')
     >>> d2.c
     '3'
-    >>> d1['empty']
     >>> d2['empty']
     Traceback (most recent call last):
         ...
@@ -91,7 +90,7 @@ class _LazyConnection(object):
             self.connection=connection
         return self.connection.cursor()
 
-    def commmit(self):
+    def commit(self):
         self.connection.commit()
 
     def rollback(self):
@@ -319,7 +318,6 @@ def select_one(sql,*args):
     If multiple results found,the first one returned.
 
 
-    >>> u1=
     '''
     return  _select(sql,True,*args)
 
@@ -329,8 +327,6 @@ def select_int(sql,*args):
     '''
     Execute select SQL and expected one int and one int result.
 
-    >>> n=update('delete from user')
-    >>> u1=
     '''
     d=_select(sql,True,*args)
     if len(d)!=1:
@@ -389,8 +385,8 @@ def update(sql,*args):
 
 if __name__=='__main__':
     logging.basicConfig(level=logging.DEBUG)
-    create_engine('www-data','www-data','test')
-    update('drop table if exist user')
+    create_engine('kok','kok','test')
+    update('drop table if exists user')
     update('create table user(id int primary key,name text,email text,passwd text,last_modified real)')
-    import doctest
-    doctest.testmod()
+    #import doctest
+    #doctest.testmod()
